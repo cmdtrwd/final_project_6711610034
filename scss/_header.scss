@@ -1,0 +1,173 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all v.$transition-normal;
+  padding: 0.8rem 0;
+  background: transparent;
+
+  &.scrolled {
+    @include m.glass-dark(0.85, 12px);
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: v.$font-primary;
+    font-size: 1.5rem;
+    color: v.$color-hover;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1001;
+    position: relative;
+    @include m.text-gradient;
+  }
+
+  .nav-menu {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100vw;
+    height: 100vh;
+    @include m.glass-dark(0.95, 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transition: right v.$transition-normal;
+
+    &.active {
+      right: 0;
+    }
+
+    li a {
+      font-family: v.$font-secondary;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      font-size: 18px;
+      color: v.$color-white; 
+      text-decoration: none;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: v.$color-hover;
+        transition: width v.$transition-fast;
+      }
+
+      &:hover {
+        color: v.$color-hover;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%;
+      }
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 6px;
+
+    .bar {
+      display: block; 
+      width: 25px;
+      height: 2px;
+      background-color: v.$color-white;
+      border-radius: 2px;
+      transition: all v.$transition-normal;
+    }
+
+    &.active {
+      .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 1rem 0;
+
+    .logo {
+      font-size: 28px;
+    }
+
+    .nav-menu {
+      position: static;
+      width: auto;
+      max-width: none;
+      height: auto;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 2rem;
+
+      li a {
+        font-size: 18px;
+      }
+    }
+    
+
+    .hamburger {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1024px){
+  .header {
+    padding: 1rem 0;
+
+    .logo {
+      font-size: 48px;
+    }
+
+    .nav-menu {
+      li a {
+        font-size: 22px;
+      }
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
+}

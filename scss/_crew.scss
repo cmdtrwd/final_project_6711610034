@@ -1,0 +1,370 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'sass:color';
+
+.crew-bg-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  .crew-bg-map {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://preview.redd.it/updated-one-piece-world-map-with-luffys-full-path-until-v0-lm93f2q9fqaf1.jpeg?width=1080&crop=smart&auto=webp&s=951b00cc3c619d917c650054af2e6249e2cbbc8d');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6) saturate(0.6);
+  }
+
+  .crew-bg-glass {
+    position: absolute;
+    inset: 0;
+    background: rgba(7, 15, 31, 0.6);
+    backdrop-filter: blur(2px);
+  }
+}
+
+.crew-main {
+  padding-top: 120px;
+  padding-bottom: 4rem;
+  min-height: 100vh;
+}
+
+.crew-hero {
+  text-align: center;
+  padding: 2rem 0 3rem;
+
+  h1 {
+    color: v.$color-hover;
+  }
+
+  p {
+    color: v.$color-text-highlight;
+  }
+}
+
+.crew-timeline {
+  position: relative;
+  padding: 1rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(244, 196, 48, 0.6) 5%, rgba(244, 196, 48, 0.6) 95%, transparent);
+  }
+}
+
+.crew-timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(50% + 1.5rem);
+  margin-bottom: 2.5rem;
+  position: relative;
+
+  &:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: calc(50% + 1rem);
+  }
+}
+
+.crew-card {
+  width: 200px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(6px);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: v.$color-hover;
+  }
+
+  .crew-card-img {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .crew-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(7, 15, 31, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      span {
+        color: v.$color-hover;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  &:hover .crew-card-img img {
+    transform: scale(1.05);
+  }
+
+  &:hover .crew-card-overlay {
+    opacity: 1;
+  }
+
+  .crew-card-info {
+    padding: 12px;
+    text-align: center;
+
+    h3 {
+      font-size: 14px;
+      color: v.$color-white;
+      margin: 0 0 20px;
+    }
+
+    p {
+      font-size: 12px;
+      color: v.$color-hover;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+  }
+}
+
+.crew-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1rem 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.crew-detail-panel {
+  background: rgba(11, 22, 45, 0.95);
+  border: 1px solid rgba(244, 196, 48, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  max-width: 720px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 3rem 2rem 2rem;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(244, 196, 48, 0.5) rgba(255, 255, 255, 0.05);
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(244, 196, 48, 0.5);
+    border-radius: 10px;
+
+    &:hover {
+      background: rgba(244, 196, 48, 0.8);
+    }
+  }
+
+  .crew-detail-overlay.active & {
+    transform: translateY(0);
+  }
+}
+
+.crew-detail-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  color: v.$color-text-muted;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: v.$color-white;
+  }
+}
+
+.crew-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.crew-wanted {
+  display: flex;
+  justify-content: center;
+
+  .wanted-photo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+}
+.crew-detail-name {
+  font-family: v.$font-primary;
+  color: v.$color-hover;
+  font-size: 28px;
+  margin: 0 0 12px;
+}
+
+.crew-detail-role {
+  color: v.$color-button;
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin: 0 0 20px;
+}
+
+.crew-detail-quote {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid v.$color-button;
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+  font-size: 16px;
+  color: #ddd;
+  margin-bottom: 20px;
+
+  P {
+    margin: 0;
+    line-height: 150%;
+  }
+}
+
+.crew-detail-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.crew-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+
+  .stat-label {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: v.$color-white;
+    margin-bottom: 20px;
+
+    &.bounty-value {
+      font-family: 'Courier New', monospace;
+      color: v.$color-hover;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.crew-detail-bio {
+  font-size: 18px;
+  line-height: 1.7;
+  color: v.$color-text-muted;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.crew-close-btn {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .crew-timeline-item {
+    padding-right: calc(50% + 2rem);
+
+    &:nth-child(even) {
+      padding-left: calc(50% + 2rem);
+    }
+  }
+
+  .crew-card {
+    width: 180px;
+  }
+
+  .crew-hero {
+  text-align: center;
+  padding: 2rem 0 3rem;
+
+  h1 {
+    color: v.$color-hover;
+  }
+
+  p {
+    text-align: center;
+    color: v.$color-text-highlight;
+  }
+}
+}
+
+
+@media (min-width: 1024px) {
+  .crew-timeline-item {
+    padding-right: calc(50% + 3rem);
+    margin-bottom: 3rem;
+
+    &:nth-child(even) {
+      padding-left: calc(50% + 3rem);
+    }
+  }
+
+  .crew-card {
+    width: 280px;
+
+    .crew-card-info {
+      h3 { font-size: 24px; }
+      p  { font-size: 18px; text-align: center;}
+    }
+  }
+}

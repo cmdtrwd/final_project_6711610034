@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece | The Grand Voyage</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+
+    <div class="loader-wrapper">
+        <div class="loader-content">
+            <!-- <img src="img/logo.png" alt="One Piece Logo" class="loader-logo"> -->
+            <div class="loading-animation-container">
+                <svg class="loading-wave-svg" viewBox="0 0 200 20" preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 10 Q12.5 0 25 10 T50 10 T75 10 T100 10 T125 10 T150 10 T175 10 T200 10"
+                        fill="transparent" stroke="#F4C430" stroke-width="2" class="wave-path" />
+                </svg>
+                <div class="loading-ship-container">
+                    <svg class="loading-ship" viewBox="0 0 640 512" fill="#E62325" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M280 32c-13.3 0-24 10.7-24 24V288h-32V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V288H144V136c0-13.3-10.7-24-24-24s-24 10.7-24 24V288H80V200c0-13.3-10.7-24-24-24s-24 10.7-24 24V288H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H624c8.8 0 16-7.2 16-16s-7.2-16-16-16H584V200c0-13.3-10.7-24-24-24s-24 10.7-24 24V288H504V136c0-13.3-10.7-24-24-24s-24 10.7-24 24V288H424V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V288H368V56c0-13.3-10.7-24-24-24H280zm322.7 326.5c-4.4-1.3-9-2.2-13.7-2.6L553 352H87l-35.9 3.9c-4.7 .4-9.3 1.3-13.7 2.6L1.8 368.6C.6 369 0 370.2 0 371.4V464c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V371.4c0-1.2-.6-2.4-1.8-2.8l-35.5-10.1zM592 464v-61.9l-22.3-6.4C558 392.4 545.2 391 532.4 391c-19.4 0-38.3 6-53.9 17l-9.1 6.5c-11.8 8.4-26.2 12.9-40.9 12.9H211.5c-14.7 0-29.1-4.5-40.9-12.9l-9.1-6.5C146 397 127.1 391 107.6 391c-12.8 0-25.6 1.4-37.3 4.7L48 402.1V464H592z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Character Popup -->
+    <!-- <div class="initial-popup">
+        <img src="https://i.pinimg.com/736x/0f/33/b6/0f33b6203471e1116a3b504082c88264.jpg"
+            alt="Luffy Popup" class="popup-char">
+    </div> -->
+
+    <!-- Fixed Dynamic Background -->
+    <div class="fixed-bg-video">
+        <video autoplay muted loop playsinline class="fixed-bg-vid">
+            <source src="video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="fixed-bg-overlay"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo-link"><h1 class="nav-logo-text">ONE PIECE</h1></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="grandline.html">The Grand Line</a></li>
+                    <li><a href="crew.html">Strew the Crew</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section section-padding" data-bg="none">
+            <div class="container text-center fade-in">
+                <h1 class="h1">The Great Pirate Era Begins</h1>
+                <p class="lead fade-in delay-1 text-center">The Grand Line awaits those who dare to dream</p>
+                <div class="hero-cta fade-in delay-2">
+                    <a href="" class="btn btn-primary btn-hero">Start Adventure</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section section-padding" data-bg="none">
+            <div class="container">
+
+                <div class="row row-2 align-items-center character-row">
+                    <div class="about-image fade-in">
+                        <img src="https://i.pinimg.com/736x/40/31/00/403100c729d0ef4551aeadfa57d9cbf7.jpg" alt="Luffy">
+                    </div>
+                    <div class="about-text fade-in delay-1">
+                        <h2 class="h2 text-accent">Monkey D Luffy</h2>
+                        <h3 class="h3">Captain</h3>
+                        <p>The founder and captain of the increasingly infamous and powerful Strew Hat Pirates, as well
+                            as one of its top fighters. His lifelong dream is to become the Pirate King by finding the
+                            legendary treasure.</p>
+                    </div>
+                </div>
+
+                <div class="news-section fade-in">
+                    <div class="news-header-row">
+                        <div>
+                            <h2 class="h2 text-accent">News & Updates</h2>
+                            <p class="news-subtitle">Latest transmissions from the Den Den Mushi</p>
+                        </div>
+                    </div>
+
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <img src="https://deadline.com/wp-content/uploads/2022/08/one-piece-red.png?w=681&h=383&crop=1"
+                                alt="News 1">
+                            <div class="news-card-body">
+                                <p class="news-tag">Movie Release</p>
+                                <h4>One Piece Film: Red Global Release Dates</h4>
+                                <p>Uta, the world's most beloved singer, is set to reveal herself to the world...</p>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <img src="https://i.redd.it/nrn502p50h681.jpg" alt="News 2">
+                            <div class="news-card-body">
+                                <p class="news-tag">Author News</p>
+                                <h4>Eiichiro Oda's Special Message to Fans</h4>
+                                <p>The creator discusses the final saga and what's in store for the Strew Hat...</p>
+                            </div>
+                        </div>
+                        <div class="news-card">
+                            <img src="https://downtownny.com/wp-content/uploads/2025/10/101425_mercer2_2400x1615.jpg"
+                                alt="News 3">
+                            <div class="news-card-body">
+                                <p class="news-tag">Events</p>
+                                <h4>Wano Kuni Exhibition Opening in Tokyo</h4>
+                                <p>Experience the world of Wano through life-sized figures and original...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-view-more">
+                        <a href="" class="btn btn-primary btn-hero">View More</a>
+                    </div>
+                </div>
+
+                <div class="gallery-section fade-in">
+                    <h2 class="h2 text-accent">Gallery</h2>
+                    <div class="gallery-slider-container">
+                        <div class="gallery-track" id="galleryTrack">
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Luffy_and_Aces_Last_Moments.png" alt="Luffy & Ace's Last Moments">
+                                <div class="gallery-caption"><span>Luffy &amp; Ace's Last Moments</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Going_Merrys_Funeral.jpg" alt="Going Merry's Funeral">
+                                <div class="gallery-caption"><span>Going Merry's Funeral</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Laboon_Anime_Infobox.png" alt="Laboon">
+                                <div class="gallery-caption"><span>Laboon</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Shanks_Saves_Luffy.jpg" alt="Shanks Saves Luffy">
+                                <div class="gallery-caption"><span>Shanks Saves Luffy</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/11ae3b48f68c215749b47b3c8a2709f5.jpg" alt="The Straw Hat Crew">
+                                <div class="gallery-caption"><span>Nothing Happened: Zoro's ultimate act of loyalty</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Luffy_Cries_Over_the_Death_of_Ace.jpg" alt="Luffy Cries for Ace">
+                                <div class="gallery-caption"><span>Luffy Cries for Ace</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Robin_Resisting_Spandam_Dragging_Her.png" alt="Robin's Resistance">
+                                <div class="gallery-caption"><span>Robin's Resistance</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://www.mangozero.com/wp-content/uploads/2016/11/Sanji_Discovers_Zeffs_Missing_Leg.png" alt="Sanji & Zeff's Bond">
+                                <div class="gallery-caption"><span>Sanji &amp; Zeff's Bond</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://pbs.twimg.com/media/HDr7enxbkAE2y8g?format=jpg&name=900x900" alt="Epic Moment IX">
+                                <div class="gallery-caption"><span>The last smile of Donquixote Rosinante</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://pbs.twimg.com/media/HDr7edvakAA_ppZ?format=jpg&name=900x900" alt="Epic Moment X">
+                                <div class="gallery-caption"><span>The simplest and happiest moments of Kuma and Ginny</span></div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://pbs.twimg.com/media/HDr7entbEAAym93?format=jpg&name=900x900" alt="Epic Moment XI">
+                                <div class="gallery-caption"><span>The pain behind the iron mask: Sanji’s hidden past</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-nav">
+                        <button class="gallery-btn prev-btn" id="galleryPrev">&lt;</button>
+                        <button class="gallery-btn next-btn" id="galleryNext">&gt;</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo-link"><h1 class="nav-logo-text">ONE PIECE</h1></a>
+                </div>
+            </div>
+            <div class="footer-nav-row">
+                <div class="footer-links-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="grandline.html">The Grand Line</a></li>
+                        <li><a href="crew.html">Strew the Crew</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>The Grand Line</h4>
+                    <ul class="footer-links">
+                        <li><a href="grandline.html">About</a></li>
+                        <li><a href="grandline.html">Story Synopsis</a></li>
+                        <li><a href="grandline.html">One Piece Arc</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Strew Hat Crew</h4>
+                    <ul class="footer-links">
+                        <li><a href="crew.html">Characters & Abilities</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ONE PIECE. This site is for educational purposes only.</p>
+                <div class="condition">
+                    <p>Privacy Policy</p>
+                    <p>Term of Use</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

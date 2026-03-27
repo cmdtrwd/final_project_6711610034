@@ -1,0 +1,100 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Space+Grotesk:wght@300..700&display=swap');
+
+h1, .h1
+{
+  font-family: v.$font-primary;
+  margin-bottom: 20;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+
+h2, .h2,
+h3, .h3,
+p, .p
+{
+  font-family: v.$font-secondary;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+h1, .h1 {
+  @include m.text-gradient;
+}
+
+h2, .h2 {
+  font-size: 32px;
+  color: v.$color-hover;
+}
+
+
+h1 {
+  margin-bottom: 16px;
+  color: v.$color-text-muted;
+  font-size: 48px;
+
+  &.lead {
+    font-size: 24px;
+    color: v.$color-text-highlight;
+    line-height: 1.5;
+  }
+}
+
+p {
+  margin-bottom: 16px;
+  color: v.$color-text-muted;
+  font-size: 20px;
+  text-align: justify;
+
+  &.lead {
+    font-size: 18px;
+    color: v.$color-text-highlight;
+    line-height: 1.7;
+  }
+}
+
+.text-center  { text-align: center; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
+.text-primary { color: v.$color-primary; }
+.text-button  { color: v.$color-button; }
+.text-hover   { color: v.$color-hover; }
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  @include m.flex-column;
+  align-items: center;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: v.$color-button;
+    margin-top: 0.75rem;
+    border-radius: 2px;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .section-title {
+    margin-bottom: 3rem;
+    &::after {
+      width: 60px;
+      height: 4px;
+      margin-top: 1rem;
+    }
+  }
+}
+@media (min-width: 1024px) {
+  p.lead {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,82 @@
+@use 'sass:color';
+@use 'variables' as v;
+
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  font-family: v.$font-secondary;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px; 
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+
+  // Shine sweep animation
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-15deg);
+    transition: left 0.5s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    left: 130%;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &-primary {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: v.$color-white;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: v.$color-button;
+      color: v.$color-white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &-outline {
+    background-color: transparent;
+    color: v.$color-hover;
+    border: 2px solid v.$color-hover;
+
+    &:hover {
+      background-color: v.$color-hover;
+      color: v.$color-primary;
+      box-shadow: 0 0 15px rgba(244, 196, 48, 0.5);
+    }
+  }
+}
+
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0.8rem 2rem;
+    font-size: 16px;
+  }
+}
